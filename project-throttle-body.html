@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mechanical throttle body — Iknoor Braich</title>
+<meta name="description" content="Mechanical throttle body — a small-engine carburetor reverse-engineered into CAD and redesigned as a bolt-on throttle body. Project by Iknoor Braich." />
+<meta name="color-scheme" content="dark" />
+<meta name="theme-color" content="#111520" />
+<noscript><style>.reveal{opacity:1!important;transform:none!important}.page{animation:none!important}</style></noscript>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23111520'/%3E%3Cpath d='M6 6h13l7 7v13H13l-7-7z' fill='none' stroke='%23F5E003' stroke-width='2.5'/%3E%3C/svg%3E" />
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<canvas class="fx" id="fx" aria-hidden="true"></canvas>
+
+<header class="hud">
+  <a href="index.html" class="hud__brand" aria-label="Iknoor Braich — home">
+    <span class="hud__mark" aria-hidden="true"></span>
+    <span class="hud__name">IKNOOR<span class="dim">.</span>BRAICH</span>
+  </a>
+  <nav class="hud__nav" aria-label="Primary">
+    <a href="projects.html"><span class="idx">01</span> Projects</a>
+    <a href="about.html"><span class="idx">02</span> About</a>
+    <a href="contact.html"><span class="idx">03</span> Contact</a>
+  </nav>
+  <div class="hud__status">
+    <span class="hud__live"><i aria-hidden="true"></i>OPEN&nbsp;TO&nbsp;WORK</span>
+  </div>
+  <button class="hud__toggle" id="navToggle" aria-expanded="false" aria-controls="mobileNav">
+    <span></span><span></span><span></span><em class="vh">Menu</em>
+  </button>
+</header>
+
+<div class="mobile-nav" id="mobileNav" hidden>
+  <a href="projects.html"><span class="idx">01</span> Projects</a>
+  <a href="about.html"><span class="idx">02</span> About</a>
+  <a href="contact.html"><span class="idx">03</span> Contact</a>
+  <a class="mobile-nav__mail" href="mailto:ibraich@uoguelph.ca">ibraich@uoguelph.ca</a>
+</div>
+
+<aside class="spine" aria-hidden="true">
+  <a href="projects.html" data-page="projects">01</a>
+  <a href="about.html" data-page="about">02</a>
+  <a href="contact.html" data-page="contact">03</a>
+  <span class="spine__line"></span>
+</aside>
+
+<main id="main">
+<div class="page">
+
+  <p class="backlink"><a href="projects.html">All projects</a></p>
+
+  <header class="pagehead reveal">
+    <p class="kicker">// PROJECT 03</p>
+    <h1>Mechanical throttle body</h1>
+  </header>
+
+  <div class="casebar reveal">
+    <p class="stack">
+      <span>Siemens NX</span><span>SolidWorks</span><span>Reverse engineering</span><span>FDM 3D printing</span>
+    </p>
+  </div>
+
+  <div class="case__figs reveal">
+    <figure><img src="assets/img/tb-hero-1.png" alt="SolidWorks render of the final throttle body assembly with a red cone filter fitted" loading="lazy" decoding="async" width="1600" height="1200" /></figure>
+    <figure><img src="assets/img/tb-hero-2.png" alt="SolidWorks render of the final throttle body assembly from a second angle, showing the flange and diaphragm plate" loading="lazy" decoding="async" width="1120" height="1120" /></figure>
+    <p class="case__cap">final throttle body version assembly</p>
+  </div>
+
+  <section class="case reveal">
+    <h2>Goal</h2>
+    <p class="case__wide">
+      This started as more of an open-ended project as a partner and I were told to make a mechanical backup throttle
+      body that the team (Gryphon Racing Formula FSAE) could use in the future. Initially there was no fixed deadline
+      attached. It only became a one week sprint once the electronic throttle body's approval got delayed right before
+      FSAE Michigan.
+    </p>
+    <div class="case__figs case__figs--3">
+      <figure><img src="assets/img/tb-goal-1.png" alt="Bosch engineering drawing of the 32 mm electronic throttle body — orthographic views, dimensions and tolerances" loading="lazy" decoding="async" width="2072" height="1481" /></figure>
+      <figure><img src="assets/img/tb-goal-2.jpg" alt="The purchased throttle body being measured with digital calipers" loading="lazy" decoding="async" width="1600" height="1200" /></figure>
+      <figure><img src="assets/img/tb-goal-3.jpg" alt="One of the first 3D prints of the mechanical throttle body, in orange" loading="lazy" decoding="async" width="1500" height="1200" /></figure>
+      <p class="case__cap">One the left are the schematic's for the 32mm Bosch Electronic Throttle Body, on the right is the purchased unit that was harvested for parts along with one of the first prints.</p>
+    </div>
+  </section>
+
+  <section class="case reveal">
+    <h2>Process</h2>
+    <div class="case__split">
+      <div>
+        <p>
+          We started by purchasing a mechanical throttle body off AliExpress and harvesting some of its components.
+          We then compared its design against the electronic throttle body we were meant to back up. From there, we
+          pulled the electronic throttle's specs directly from Bosch's website to make sure every major mounting point
+          would line up and began building the mechanical backup around those reference dimensions.
+        </p>
+        <p>
+          Most of our real design decisions came down to fit and tolerance, we needed everything to seat snugly
+          without binding. Tolerancing ended up being the hardest part of the whole project, partly because it was my
+          first real exposure to it. The trickiest piece was getting the valve to actually turn without interference
+          once everything was assembled. Thankfully through much iteration the final model allowed for all components
+          to fit snugly and operate how there supposed to.
+        </p>
+        <p>
+          The successes of this project came purely down to communication. As talking directly with our Driveline
+          lead and getting the electronic throttle's specs ahead of time meant we were designing against real
+          constraints from day one, instead of guessing and correcting later.
+        </p>
+      </div>
+      <div>
+        <div class="case__figs case__figs--3">
+          <figure><img src="assets/img/tb-v1.png" alt="SolidWorks model of throttle body version 1 — the bare flanged body with a hose barb" loading="lazy" decoding="async" width="1500" height="1100" /></figure>
+          <figure><img src="assets/img/tb-v2.png" alt="SolidWorks model of throttle body version 2" loading="lazy" decoding="async" width="1500" height="1100" /></figure>
+          <figure><img src="assets/img/tb-v3.png" alt="SolidWorks model of throttle body version 3" loading="lazy" decoding="async" width="1500" height="1100" /></figure>
+          <p class="case__cap">Throttle Body V1, V2, V3 from left to right.</p>
+        </div>
+        <div class="case__figs">
+          <figure><img src="assets/img/tb-lip-1.png" alt="SolidWorks front view of the assembly with a cutaway showing the internal valve linkage" loading="lazy" decoding="async" width="1120" height="1400" /></figure>
+          <figure><img src="assets/img/tb-lip-2.png" alt="SolidWorks front view of the assembly showing the outer lip of the flange" loading="lazy" decoding="async" width="1050" height="1160" /></figure>
+          <p class="case__cap">Outer lip diameter was changed between V2 and V3.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="case reveal">
+    <h2>Outcome</h2>
+    <div class="case__split">
+      <div>
+        <p>
+          Luckily the electronic throttle body ended up getting approved just before competition so the mechanical
+          backup was never needed on track. That said, the team is keeping it on file for future use in case a similar
+          situation happens again. Despite it never being used I learned a valuable lessons on tolerancing and
+          iterative design; lessons which carried over into my autonomous quadcopter project where making sure
+          tolerances were correct was crucial for joining parts, spacing inserts and more.
+        </p>
+      </div>
+      <div class="case__figs case__figs--single">
+        <figure><img src="assets/img/tb-outcome.jpg" alt="The fully assembled 3D-printed throttle body prototype held in hand on a workbench" loading="lazy" decoding="async" width="1500" height="2000" /><figcaption>Fully assembled throttle body prototype printed in PETG.</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<footer class="foot">
+  <span class="hud__mark" aria-hidden="true"></span>
+  <p>IKNOOR BRAICH — 2026</p>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

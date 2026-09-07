@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Autonomous quadcopter — Iknoor Braich</title>
+<meta name="description" content="Autonomous quadcopter — a 324 mm carbon-plate airframe with a Pixhawk running ArduCopter. Project by Iknoor Braich." />
+<meta name="color-scheme" content="dark" />
+<meta name="theme-color" content="#111520" />
+<noscript><style>.reveal{opacity:1!important;transform:none!important}.page{animation:none!important}</style></noscript>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23111520'/%3E%3Cpath d='M6 6h13l7 7v13H13l-7-7z' fill='none' stroke='%23F5E003' stroke-width='2.5'/%3E%3C/svg%3E" />
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<canvas class="fx" id="fx" aria-hidden="true"></canvas>
+
+<header class="hud">
+  <a href="index.html" class="hud__brand" aria-label="Iknoor Braich — home">
+    <span class="hud__mark" aria-hidden="true"></span>
+    <span class="hud__name">IKNOOR<span class="dim">.</span>BRAICH</span>
+  </a>
+  <nav class="hud__nav" aria-label="Primary">
+    <a href="projects.html"><span class="idx">01</span> Projects</a>
+    <a href="about.html"><span class="idx">02</span> About</a>
+    <a href="contact.html"><span class="idx">03</span> Contact</a>
+  </nav>
+  <div class="hud__status">
+    <span class="hud__live"><i aria-hidden="true"></i>OPEN&nbsp;TO&nbsp;WORK</span>
+  </div>
+  <button class="hud__toggle" id="navToggle" aria-expanded="false" aria-controls="mobileNav">
+    <span></span><span></span><span></span><em class="vh">Menu</em>
+  </button>
+</header>
+
+<div class="mobile-nav" id="mobileNav" hidden>
+  <a href="projects.html"><span class="idx">01</span> Projects</a>
+  <a href="about.html"><span class="idx">02</span> About</a>
+  <a href="contact.html"><span class="idx">03</span> Contact</a>
+  <a class="mobile-nav__mail" href="mailto:ibraich@uoguelph.ca">ibraich@uoguelph.ca</a>
+</div>
+
+<aside class="spine" aria-hidden="true">
+  <a href="projects.html" data-page="projects">01</a>
+  <a href="about.html" data-page="about">02</a>
+  <a href="contact.html" data-page="contact">03</a>
+  <span class="spine__line"></span>
+</aside>
+
+<main id="main">
+<div class="page">
+
+  <p class="backlink"><a href="projects.html">All projects</a></p>
+
+  <header class="pagehead reveal">
+    <p class="kicker">// PROJECT 01</p>
+    <h1>Autonomous quadcopter</h1>
+  </header>
+
+  <div class="casebar reveal">
+    <p class="stack">
+      <span>SolidWorks</span><span>Fusion 360</span><span>Ansys Workbench</span><span>FDM 3D printing</span><span>DFMA</span>
+    </p>
+  </div>
+
+  <!-- HERO VIDEO: IMG_4844.mov, copied to assets/media/drone-hero.mov -->
+  <figure class="case__vid case__vid--hero reveal">
+    <video data-loop muted loop playsinline preload="none" poster="assets/img/quad-assembled.jpg" aria-label="The drone in flight">
+      <source src="assets/media/drone-hero.mov" />
+    </video>
+  </figure>
+
+  <section class="case reveal">
+    <h2>Goal</h2>
+    <p>
+      For our team the idea was pretty straightforward short term; build a drone platform from scratch that
+      incorporates FDM 3D-Printing in some manner and get if flying reliably. In the longer term we planned to
+      turn this into a payload drone with a swappable tool mounting system so said tools could be swapped out
+      based on the mission.
+    </p>
+    <div class="case__figs case__figs--goal">
+      <figure><img src="assets/img/quad-concept-1.png" alt="Hand-drawn top-view concept sketch: flight controller, two ESCs and a battery on the frame, with span dimensions and a coaxial-X motor note" loading="lazy" decoding="async" width="1108" height="960" /></figure>
+      <figure><img src="assets/img/quad-concept-2.png" alt="Hand-drawn side-view concept sketch: prop size, top and bottom motors, payload bay rails, landing gear and arm dimensions" loading="lazy" decoding="async" width="1160" height="900" /></figure>
+      <p class="case__cap">Some early concepts sketches during our research phase.</p>
+    </div>
+  </section>
+
+  <section class="case reveal">
+    <h2>Process</h2>
+    <div class="case__split">
+      <div class="case__figs">
+        <figure><img src="assets/img/quad-p1-clamp-separate.png" alt="CAD: a standalone motor-clamp block with a saddle cut for the carbon tube" loading="lazy" decoding="async" width="1320" height="1150" /><figcaption>Original Design had the clamp separated from frame components</figcaption></figure>
+        <figure><img src="assets/img/quad-p2-clamp-integrated.png" alt="CAD: the clamp split into a saddle built directly into the frame plate" loading="lazy" decoding="async" width="920" height="820" /><figcaption>Final Design had the seperated the clamp into two halves attached to the respective frames to optimize for 3D printing</figcaption></figure>
+        <figure><img src="assets/img/quad-p3-mount-v4.png" alt="CAD: a motor mount with a socket for the carbon tube and a reinforcing tab" loading="lazy" decoding="async" width="1708" height="1136" /><figcaption>Motor Mount V4 one iteration used on our PLA prototype</figcaption></figure>
+        <figure><img src="assets/img/quad-p4-mount-v6.png" alt="CAD: the final motor mount — a square cup for the motor on a bolt-down base" loading="lazy" decoding="async" width="1274" height="1030" /><figcaption>Motor Mount V6 was used on the final design for stage 1</figcaption></figure>
+        <figure><img src="assets/img/quad-frame-lower-v3.png" alt="CAD: a carbon-plate drone frame plate with battery pockets and standoff bosses" loading="lazy" decoding="async" width="1240" height="800" /><figcaption>Lower Frame V3</figcaption></figure>
+        <figure><img src="assets/img/quad-frame-upper-v3.png" alt="CAD: a drone frame plate with four integrated motor-clamp saddles" loading="lazy" decoding="async" width="1600" height="900" /><figcaption>Upper Frame V3</figcaption></figure>
+      </div>
+      <div>
+        <p>
+          I started by researching different drone types and looking at what other teams had done with a similar scope,
+          before we settled on our prop size, battery specs, and motors. Once those were locked in, I began designing
+          around them. My first instinct was to start with the frame, but instead I spent a week on overcomplicated
+          clamp designs before realizing a much simpler approach, chamfered clamps attached directly to each frame
+          plate, would work better for a 3D printed frame in the first place.
+        </p>
+        <p>
+          From there I moved on to the frame itself. I initially thought a 120mm x 120mm profile would be enough but
+          after measuring key components like the ESC, Li-Po battery, and accounting for cable management/room for
+          future expansion, I landed on 230mm x 230mm frame instead. The frame design was optimized for 3D printing
+          with space for heat set inserts as well as custom print settings. Once those profiles were set &amp; created,
+          I worked with my teammates to figure out arm length for the carbon fiber tubes and after some research and
+          deliberation we settled on 1ft (305mm) arms.
+        </p>
+        <p>
+          The motor mounts took the most iteration, around six versions before we landed on a final design. Each round
+          came down to a different issue: whether the motor was actually held securely or at risk of tearing loose,
+          whether there was enough clearance for the carbon tube to seat properly, and whether we needed extensions on
+          the bottom in case we skipped landing gear. We ended up scrapping the extensions and just landing directly on
+          the bottom plate instead.
+        </p>
+        <p>
+          Assembly is where things got harder. PLA started deforming under use and several heat set inserts weren't
+          bonding well. So to make sure the test flight would actually hold together, we switched to printing
+          everything in PA6-CF. Looking back, that was probably overkill for what the frame actually needed
+          structurally, something I'll keep in mind for future iterations; but at the time it was the safer call to
+          make sure everything survived the first flight.
+        </p>
+      </div>
+    </div>
+
+    <div class="case__vids reveal">
+      <figure class="case__vid">
+        <video data-loop muted loop playsinline preload="none" aria-label="Timelapse of the upper frame plate being printed">
+          <source src="assets/media/drone-lapse.mp4" type="video/mp4" />
+        </video>
+        <figcaption>Timelapse of the upper frame plate being printed in PA6-CF</figcaption>
+      </figure>
+      <figure class="case__vid">
+        <video data-loop muted loop playsinline preload="none" aria-label="Timelapse of motor mount v6 being printed">
+          <source src="assets/media/mount-lapse.mp4" type="video/mp4" />
+        </video>
+        <figcaption>Timelapse of motor mount v6 being printed in PA6-CF</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="case reveal">
+    <h2>Outcome</h2>
+    <div class="case__split">
+      <div>
+        <p>
+          After many weeks of work we finally got our drone to fly successfully on its own which was the actual bar
+          for stage 1. Beyond that we haven't tested payload capacity or flight duration yet. However that was never
+          the goal for this stages as phase 1 was about proving/confirming the all systems could all work together
+          reliably before building anything further on top of it. That foundation is what the swappable mounting
+          system and payload testing will build on.
+        </p>
+      </div>
+      <figure class="case__vid">
+        <video data-loop muted loop playsinline preload="none" poster="assets/img/quad-assembled.jpg" aria-label="The drone's first autonomous flight">
+          <source src="assets/media/drone-outcome.mov" />
+        </video>
+      </figure>
+    </div>
+  </section>
+
+  <section class="case reveal">
+    <h2>Project gallery</h2>
+    <div class="case__gallery">
+      <figure><img src="assets/img/quad-gal-esc.jpg" alt="The 4-in-1 ESC wired into the power distribution on the carbon frame plate" loading="lazy" decoding="async" width="1600" height="1200" /></figure>
+      <figure><img src="assets/img/quad-gal-bench.jpg" alt="The assembled drone on a plywood workbench, surrounded by tools and the transmitter" loading="lazy" decoding="async" width="1600" height="1200" /></figure>
+      <figure><img src="assets/img/quad-gal-layout.jpg" alt="Carbon arm tubes, motors and the flight controller laid out before assembly" loading="lazy" decoding="async" width="1600" height="1200" /></figure>
+      <figure><img src="assets/img/quad-gal-drill.jpg" alt="A printed frame part clamped in a drill-press vice being drilled out" loading="lazy" decoding="async" width="1600" height="1200" /></figure>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<footer class="foot">
+  <span class="hud__mark" aria-hidden="true"></span>
+  <p>IKNOOR BRAICH — 2026</p>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
