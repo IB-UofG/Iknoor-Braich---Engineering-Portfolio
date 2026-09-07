@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Projects — Iknoor Braich</title>
+<meta name="description" content="Engineering projects by Iknoor Braich: a coaxial-X octocopter, an inverted-pendulum control rig, a custom throttle body, and CAD / design-for-manufacturing studies." />
+<meta name="color-scheme" content="dark" />
+<meta name="theme-color" content="#111520" />
+<noscript><style>.reveal{opacity:1!important;transform:none!important}.page{animation:none!important}.gallery[hidden]{display:grid!important}</style></noscript>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23111520'/%3E%3Cpath d='M6 6h13l7 7v13H13l-7-7z' fill='none' stroke='%23F5E003' stroke-width='2.5'/%3E%3C/svg%3E" />
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<canvas class="fx" id="fx" aria-hidden="true"></canvas>
+
+<header class="hud">
+  <a href="index.html" class="hud__brand" aria-label="Iknoor Braich — home">
+    <span class="hud__mark" aria-hidden="true"></span>
+    <span class="hud__name">IKNOOR<span class="dim">.</span>BRAICH</span>
+  </a>
+  <nav class="hud__nav" aria-label="Primary">
+    <a href="projects.html"><span class="idx">01</span> Projects</a>
+    <a href="about.html"><span class="idx">02</span> About</a>
+    <a href="contact.html"><span class="idx">03</span> Contact</a>
+  </nav>
+  <div class="hud__status">
+    <span class="hud__live"><i aria-hidden="true"></i>OPEN&nbsp;TO&nbsp;WORK</span>
+  </div>
+  <button class="hud__toggle" id="navToggle" aria-expanded="false" aria-controls="mobileNav">
+    <span></span><span></span><span></span><em class="vh">Menu</em>
+  </button>
+</header>
+
+<div class="mobile-nav" id="mobileNav" hidden>
+  <a href="projects.html"><span class="idx">01</span> Projects</a>
+  <a href="about.html"><span class="idx">02</span> About</a>
+  <a href="contact.html"><span class="idx">03</span> Contact</a>
+  <a class="mobile-nav__mail" href="mailto:ibraich@uoguelph.ca">ibraich@uoguelph.ca</a>
+</div>
+
+<aside class="spine" aria-hidden="true">
+  <a href="projects.html" data-page="projects">01</a>
+  <a href="about.html" data-page="about">02</a>
+  <a href="contact.html" data-page="contact">03</a>
+  <span class="spine__line"></span>
+</aside>
+
+<main id="main">
+<div class="page">
+
+  <header class="pagehead reveal">
+    <p class="kicker">// 01 — SELECTED WORK</p>
+    <h1>Projects</h1>
+    <p class="pagehead__lead">Four projects, four different lessons.</p>
+  </header>
+
+  <!-- Project 01 -->
+  <article class="proj reveal">
+    <div class="proj__media">
+      <figure class="frame">
+        <img src="assets/img/quad-assembled.jpg" alt="Autonomous quadcopter fully assembled and standing on grass before a flight test" width="1600" height="1200" decoding="async" />
+      </figure>
+    </div>
+    <div class="proj__body">
+      <span class="proj__no" aria-hidden="true">01</span>
+      <h2>Autonomous quadcopter</h2>
+      <p class="proj__brief">
+        A custom-built autonomous drone, designed from the ground up to carry a payload, now able to fly under
+        its own control.
+      </p>
+      <dl class="spec">
+        <div><dt>Frame</dt><dd>550 × 550 mm</dd></div>
+        <div><dt>Config</dt><dd>X-quad · 4 rotor</dd></div>
+        <div><dt>Motors</dt><dd>4× 900 KV</dd></div>
+        <div><dt>Power</dt><dd>1× 6S LiPo, centre-mounted</dd></div>
+        <div><dt>Autopilot</dt><dd>Pixhawk · ArduPilot</dd></div>
+        <div><dt>Structure</dt><dd>2× 7 mm PA6-CF plate + carbon tube</dd></div>
+      </dl>
+      <p class="stack"><span>SolidWorks</span><span>Fusion 360</span><span>Ansys Workbench</span><span>FDM 3D printing</span><span>DFMA</span></p>
+      <a class="btn btn--ghost btn--case" href="project-quadcopter.html">View project</a>
+    </div>
+  </article>
+
+  <!-- Project 02 -->
+  <article class="proj proj--flip reveal">
+    <div class="proj__media">
+      <figure class="frame frame--tall">
+        <img src="assets/img/balance-rig.jpg" alt="The rotary inverted pendulum rig: a printed enclosure with a horizontal arm and a weighted pendulum at its tip, wired to a driver board" loading="lazy" decoding="async" width="878" height="2062" style="object-position:center 60%" />
+      </figure>
+    </div>
+    <div class="proj__body">
+      <span class="proj__no" aria-hidden="true">02</span>
+      <h2>Rotary inverted pendulum</h2>
+      <p class="proj__brief">
+        A self-balancing pendulum built from scratch, combining custom control with real-time encoder feedback.
+      </p>
+      <dl class="spec">
+        <div><dt>Problem</dt><dd>Swing-up + balance</dd></div>
+        <div><dt>Controller</dt><dd>PID (per-state gains)</dd></div>
+        <div><dt>Sensing</dt><dd>AS5600 magnetic encoder — arm, magnet on pendulum</dd></div>
+        <div><dt>Actuator</dt><dd>NEMA 17 stepper + A4988 driver</dd></div>
+        <div><dt>Compute</dt><dd>Arduino · C++</dd></div>
+        <div><dt>Gains</dt><dd>Kp / Ki / Kd tunable in firmware</dd></div>
+      </dl>
+      <p class="stack"><span>Arduino</span><span>C++</span><span>PID control</span><span>3D printing</span></p>
+      <a class="btn btn--ghost btn--case" href="project-pendulum.html">View project</a>
+    </div>
+  </article>
+
+  <!-- Project 03 -->
+  <article class="proj reveal">
+    <div class="proj__media">
+      <figure class="frame">
+        <img src="assets/img/intake-printed.jpg" alt="A 3D-printed throttle body held in hand on a workbench, with calipers and layout tools behind it" loading="lazy" decoding="async" width="1500" height="2000" />
+      </figure>
+    </div>
+    <div class="proj__body">
+      <span class="proj__no" aria-hidden="true">03</span>
+      <h2>Mechanical throttle body</h2>
+      <p class="proj__brief">
+        A 3D-printable last minute solution, reverse engineered under pressure.
+      </p>
+      <dl class="spec">
+        <div><dt>Venturi</dt><dd>Ø 32 mm bore</dd></div>
+        <div><dt>Valve</dt><dd>Pinned butterfly + return spring</dd></div>
+        <div><dt>Source</dt><dd>Reverse-engineered from a purchased unit</dd></div>
+        <div><dt>Material</dt><dd>PETG</dd></div>
+      </dl>
+      <p class="stack"><span>Siemens NX</span><span>SolidWorks</span><span>Reverse engineering</span><span>FDM 3D printing</span></p>
+      <a class="btn btn--ghost btn--case" href="project-throttle-body.html">View project</a>
+    </div>
+  </article>
+
+  <!-- Project 04 -->
+  <article class="proj proj--flip reveal">
+    <div class="proj__media">
+      <figure class="frame">
+        <img src="assets/img/excavator.png" alt="SolidWorks assembly of a reverse-engineered excavator — boom, arm, bucket linkage, geared drive wheels and body, in default blue and yellow" loading="lazy" decoding="async" width="1512" height="1187" />
+      </figure>
+    </div>
+    <div class="proj__body">
+      <span class="proj__no" aria-hidden="true">04</span>
+      <h2>Reverse Engineered Excavator Assembly</h2>
+      <p class="proj__brief">
+        Measured by hand, modeled in CAD, animated into motion: a full excavator assembly built from scratch.
+      </p>
+      <dl class="spec">
+        <div><dt>Parts</dt><dd>100+</dd></div>
+        <div><dt>Software</dt><dd>SolidWorks</dd></div>
+        <div><dt>Method</dt><dd>Hand-measured, then modelled</dd></div>
+        <div><dt>Motion</dt><dd>Full-assembly motion study</dd></div>
+      </dl>
+      <p class="stack"><span>SolidWorks</span><span>Engineering drawings</span><span>Reverse engineering</span><span>Motion study</span></p>
+      <a class="btn btn--ghost btn--case" href="project-excavator.html">View project</a>
+    </div>
+  </article>
+
+  <p class="pagehead__lead reveal" style="margin-top:64px">
+    Want the detail on any of these? <a href="contact.html">Get in touch</a>.
+  </p>
+
+</div>
+</main>
+
+<footer class="foot">
+  <span class="hud__mark" aria-hidden="true"></span>
+  <p>IKNOOR BRAICH — 2026</p>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
